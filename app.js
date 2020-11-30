@@ -14,30 +14,45 @@ const allCategories = [a, b, c, d, e, f, g];
 
 
 const populateGrid = () => {
-    // squareNums.forEach((num, i) => {
-    //     document.querySelector(num).innerHTML = a[i];
-    // })
 
     let usedImages = []
     const targetCategoryIdx = Math.floor(Math.random() * allCategories.length);
-    const targetCategory = allCategories[targetCategoryIdx]
-    // console.log(targetCategory)
+    const targetCategory = allCategories[targetCategoryIdx];
+    // console.log(targetCategoryIdx)
+    console.log(targetCategory)
+    const remainingCategories = [];
+
+    allCategories.forEach((cat, index)  => {
+        if (index !== targetCategoryIdx) {
+            remainingCategories.push(cat)
+        }
+    })
+
+    // console.log(remainingCategories)
 
     for (let i = 0; i < 3; i++) {
         let randomIdx = Math.floor(Math.random() * 7);
-        // console.log(randomIdx);
 
         if (!usedImages.includes(randomIdx)) {
             usedImages.push(randomIdx);
-            document.querySelector(squareNums[randomIdx]).innerHTML = targetCategory[i];        
-            // console.log(usedImages);
+            document.querySelector(squareNums[randomIdx]).innerHTML = targetCategory[randomIdx];        
 
         } else {
             i--
         }
         
     }
+    
+    const nonCategoryImages = [];
 
+    remainingCategories.forEach(cat => {
+        let randomNonCatIdx = Math.floor(Math.random() * 8);
+        nonCategoryImages.push(cat[randomNonCatIdx]);
+    })
+
+    console.log(nonCategoryImages)
+    // console.log(usedImages)
+    
 
 }
 
