@@ -1,59 +1,121 @@
-// console.log("category");
+const animals = [
+    {category: 'Animals', img: 'animalPic1'},
+    {category: 'Animals', img: 'animalPic2'},
+    {category: 'Animals', img: 'animalPic3'},
+    {category: 'Animals', img: 'animalPic4'},
+    {category: 'Animals', img: 'animalPic5'}
+];
 
-const a = ['a1','a2','a3','a4','a5','a6','a7','a8'];
-const b = ['b1','b2','b3','b4','b5','b6','b7','b8'];
-const c = ['c1','c2','c3','c4','c5','c6','c7','c8'];
-const d = ['d1','d2','d3','d4','d5','d6','d7','d8'];
-const e = ['e1','e2','e3','e4','e5','e6','e7','e8'];
-const f = ['f1','f2','f3','f4','f5','f6','f7','f8'];
-const g = ['g1','g2','g3','g4','g5','g6','g7','g8'];
+const transport = [
+    {category: 'Transport', img: 'transportPic1'},
+    {category: 'Transport', img: 'transportPic2'},
+    {category: 'Transport', img: 'transportPic3'},
+    {category: 'Transport', img: 'transportPic4'},
+    {category: 'Transport', img: 'transportPic5'}
+];
 
-const squareNums = ['.one', '.two', '.three', '.four', '.five', '.six', '.seven','.eight']
+const people = [
+    {category: 'People', img: 'personPic1'},
+    {category: 'People', img: 'personPic2'},
+    {category: 'People', img: 'personPic3'},
+    {category: 'People', img: 'personPic4'},
+    {category: 'People', img: 'personPic5'}
+];
 
-const allCategories = [a, b, c, d, e, f, g];
+const clothing = [
+    {category: 'Clothing', img: 'clothinPic1'},
+    {category: 'Clothing', img: 'clothinPic2'},
+    {category: 'Clothing', img: 'clothinPic3'},
+    {category: 'Clothing', img: 'clothinPic4'},
+    {category: 'Clothing', img: 'clothinPic5'}
+];
 
 
-const populateGrid = () => {
+const gridClasses = ['.one', '.two', '.three', '.four', '.five', '.six', '.seven','.eight']
 
-    let usedImages = []
-    const targetCategoryIdx = Math.floor(Math.random() * allCategories.length);
-    const targetCategory = allCategories[targetCategoryIdx];
-    // console.log(targetCategoryIdx)
-    console.log(targetCategory)
+let allCategories = [animals, transport, people, clothing];
+
+
+
+const selectTargetCategory = () => {
+
+   const randomCatIdx = Math.floor(Math.random() * allCategories.length);
+
+   const targetCategory = allCategories[randomCatIdx]
+
+   return targetCategory;
+};
+
+const targetCategory = selectTargetCategory();
+
+const selectRemainingCategories = () => {
+
     const remainingCategories = [];
 
-    allCategories.forEach((cat, index)  => {
-        if (index !== targetCategoryIdx) {
-            remainingCategories.push(cat)
-        }
-    })
+    console.log(targetCategory)
 
-    // console.log(remainingCategories)
+    allCategories.forEach(cat => {
+        if (cat !== targetCategory) {
+            remainingCategories.push(cat);
+        }
+    });
+
+    return remainingCategories;
+
+};
+
+console.log(selectRemainingCategories())
+
+const defineTargetPositions = () => {
+
+    const targetLocations = [];
 
     for (let i = 0; i < 3; i++) {
-        let randomIdx = Math.floor(Math.random() * 7);
 
-        if (!usedImages.includes(randomIdx)) {
-            usedImages.push(randomIdx);
-            document.querySelector(squareNums[randomIdx]).innerHTML = targetCategory[randomIdx];        
+        const randomGridClassIndex = Math.floor(Math.random() * gridClasses.length);
+
+        if (!targetLocations.includes(gridClasses[randomGridClassIndex])) {
+
+            targetLocations.push(gridClasses[randomGridClassIndex]);
 
         } else {
-            i--
-        }
+
+            i--;
+        }  
+       
+    };
+
+    return targetLocations;
+
+};
+
+const targetPositions = defineTargetPositions();
+
+
+
+const assignTargetImages = () => {
+
+    let uniqueTargetImgs = [];
+
+    for (let i = 0; i < 3; i++) {
         
+        const randomImgIdx = Math.floor(Math.random() * targetCategory.length);
+
+        if (!uniqueTargetImgs.includes(randomImgIdx)) {
+
+            uniqueTargetImgs.push(randomImgIdx);
+
+            document.querySelector(targetPositions[i]).textContent = targetCategory[randomImgIdx].img
+
+        } else {
+
+            i--;
+
+        }
     }
-    
-    const nonCategoryImages = [];
-
-    remainingCategories.forEach(cat => {
-        let randomNonCatIdx = Math.floor(Math.random() * 8);
-        nonCategoryImages.push(cat[randomNonCatIdx]);
-    })
-
-    console.log(nonCategoryImages)
-    // console.log(usedImages)
-    
 
 }
 
-populateGrid();
+assignTargetImages()
+
+// console.log(defineTargetPositions())
