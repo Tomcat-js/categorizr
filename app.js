@@ -30,10 +30,26 @@ const clothing = [
     {category: 'Clothing', img: 'clothinPic5'}
 ];
 
+const food = [
+    {category: 'Food', img: 'foodPic1'},
+    {category: 'Food', img: 'foodPic2'},
+    {category: 'Food', img: 'foodPic3'},
+    {category: 'Food', img: 'foodPic4'},
+    {category: 'Food', img: 'foodPic5'}
+];
+
+const shapes = [
+    {category: 'Shapes', img: 'shapePic1'},
+    {category: 'Shapes', img: 'shapePic2'},
+    {category: 'Shapes', img: 'shapePic3'},
+    {category: 'Shapes', img: 'shapePic4'},
+    {category: 'Shapes', img: 'shapePic5'}
+]
+
 
 const gridClasses = ['.one', '.two', '.three', '.four', '.five', '.six', '.seven','.eight']
 
-let allCategories = [animals, transport, people, clothing];
+let allCategories = [animals, transport, people, clothing, food, shapes];
 
 
 
@@ -52,7 +68,7 @@ const selectRemainingCategories = () => {
 
     const remainingCategories = [];
 
-    console.log(targetCategory)
+    // console.log(targetCategory)
 
     allCategories.forEach(cat => {
         if (cat !== targetCategory) {
@@ -64,19 +80,19 @@ const selectRemainingCategories = () => {
 
 };
 
-console.log(selectRemainingCategories())
+const remainingCategories = selectRemainingCategories();
 
 const defineTargetPositions = () => {
 
-    const targetLocations = [];
+    const targetPositions = [];
 
     for (let i = 0; i < 3; i++) {
 
         const randomGridClassIndex = Math.floor(Math.random() * gridClasses.length);
 
-        if (!targetLocations.includes(gridClasses[randomGridClassIndex])) {
+        if (!targetPositions.includes(gridClasses[randomGridClassIndex])) {
 
-            targetLocations.push(gridClasses[randomGridClassIndex]);
+            targetPositions.push(gridClasses[randomGridClassIndex]);
 
         } else {
 
@@ -85,7 +101,7 @@ const defineTargetPositions = () => {
        
     };
 
-    return targetLocations;
+    return targetPositions;
 
 };
 
@@ -118,4 +134,52 @@ const assignTargetImages = () => {
 
 assignTargetImages();
 
+const selectRemainingImages = () => {
 
+    const remainingImages = [];
+
+    remainingCategories.forEach(cat => {
+
+        const randomImgIdx = Math.floor(Math.random() * remainingCategories.length);
+
+
+        remainingImages.push(cat[randomImgIdx]);
+
+    });
+     
+    return remainingImages;
+}
+
+
+const remainingImages = selectRemainingImages();
+
+// console.log(remainingImages)
+
+const defineRemainingPositions = () => {
+
+    const remainingPositions = [];
+
+    gridClasses.forEach(gridClass => {
+        if (!targetPositions.includes(gridClass)) {
+            remainingPositions.push(gridClass);
+        }
+    });
+
+    return remainingPositions;
+}
+
+const remainingPositions = defineRemainingPositions();
+
+
+
+const assignRemainingImages = () => {
+
+    remainingPositions.forEach((position, i) => {
+        document.querySelector(position).textContent = remainingImages[i].img;
+    });
+
+}
+
+assignRemainingImages();
+
+console.log(targetCategory[0].category)
