@@ -1,9 +1,9 @@
 const animals = [
-    {category: 'Animals', img: 'animalPic1'},
-    {category: 'Animals', img: 'animalPic2'},
-    {category: 'Animals', img: 'animalPic3'},
-    {category: 'Animals', img: 'animalPic4'},
-    {category: 'Animals', img: 'animalPic5'}
+    {category: 'Animals', img: "url('images/animal_1.jpg')"},
+    {category: 'Animals', img: "url('images/animal_2.jpg')"},
+    {category: 'Animals', img: "url('images/animal_3.jpg')"},
+    {category: 'Animals', img: "url('images/animal_4.jpg')"},
+    {category: 'Animals', img: "url('images/animal_5.jpg')"}
 ];
 
 const transport = [
@@ -121,7 +121,7 @@ const assignTargetImages = () => {
 
             uniqueTargetImgs.push(randomImgIdx);
 
-            document.querySelector(targetPositions[i]).textContent = targetCategory[randomImgIdx].img
+            document.querySelector(targetPositions[i]).style.backgroundImage = targetCategory[randomImgIdx].img
 
         } else {
 
@@ -175,7 +175,7 @@ const remainingPositions = defineRemainingPositions();
 const assignRemainingImages = () => {
 
     remainingPositions.forEach((position, i) => {
-        document.querySelector(position).textContent = remainingImages[i].img;
+        document.querySelector(position).style.backgroundImage = remainingImages[i].img;
     });
 
 }
