@@ -112,10 +112,10 @@ const assignTargetImages = () => {
             i--;
 
         }
-    }
+    };
 
-}
+};
 
-assignTargetImages()
+assignTargetImages();
 
-// console.log(defineTargetPositions())
+
