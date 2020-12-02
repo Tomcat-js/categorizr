@@ -51,6 +51,7 @@ const gridClasses = ['.one', '.two', '.three', '.four', '.five', '.six', '.seven
 
 let allCategories = [animals, transport, people, clothing, food, shapes];
 
+const goBtn = document.querySelector('button');
 
 
 const selectTargetCategory = () => {
@@ -62,7 +63,7 @@ const selectTargetCategory = () => {
    return targetCategory;
 };
 
-const targetCategory = selectTargetCategory();
+let targetCategory = selectTargetCategory();
 
 const selectRemainingCategories = () => {
 
@@ -80,7 +81,7 @@ const selectRemainingCategories = () => {
 
 };
 
-const remainingCategories = selectRemainingCategories();
+let remainingCategories = selectRemainingCategories();
 
 const defineTargetPositions = () => {
 
@@ -105,7 +106,7 @@ const defineTargetPositions = () => {
 
 };
 
-const targetPositions = defineTargetPositions();
+let targetPositions = defineTargetPositions();
 
 
 
@@ -132,7 +133,7 @@ const assignTargetImages = () => {
 
 };
 
-assignTargetImages();
+// assignTargetImages();
 
 const selectRemainingImages = () => {
 
@@ -151,7 +152,7 @@ const selectRemainingImages = () => {
 }
 
 
-const remainingImages = selectRemainingImages();
+let remainingImages = selectRemainingImages();
 
 
 
@@ -168,7 +169,7 @@ const defineRemainingPositions = () => {
     return remainingPositions;
 }
 
-const remainingPositions = defineRemainingPositions();
+let remainingPositions = defineRemainingPositions();
 
 
 
@@ -180,6 +181,21 @@ const assignRemainingImages = () => {
 
 }
 
-assignRemainingImages();
+
+const refreshPage = () => {
+
+    targetCategory = selectTargetCategory();
+    remainingCategories = selectRemainingCategories();
+    targetPositions = defineTargetPositions();
+    assignTargetImages(); 
+    remainingImages = selectRemainingImages();
+    remainingPositions = defineRemainingPositions();
+    assignRemainingImages();
+}
+
+
+goBtn.addEventListener('click', refreshPage);
+
+// assignRemainingImages();
 
 console.log(targetCategory[0].category);
