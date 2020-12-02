@@ -7,43 +7,43 @@ const animals = [
 ];
 
 const transport = [
-    {category: 'Transport', img: 'transportPic1'},
-    {category: 'Transport', img: 'transportPic2'},
-    {category: 'Transport', img: 'transportPic3'},
-    {category: 'Transport', img: 'transportPic4'},
-    {category: 'Transport', img: 'transportPic5'}
+    {category: 'Transport', img: "url('images/transport_1.jpg')"},
+    {category: 'Transport', img: "url('images/transport_2.jpg')"},
+    {category: 'Transport', img: "url('images/transport_3.jpg')"},
+    {category: 'Transport', img: "url('images/transport_4.jpg')"},
+    {category: 'Transport', img: "url('images/transport_5.jpg')"}
 ];
 
 const people = [
-    {category: 'People', img: 'personPic1'},
-    {category: 'People', img: 'personPic2'},
-    {category: 'People', img: 'personPic3'},
-    {category: 'People', img: 'personPic4'},
-    {category: 'People', img: 'personPic5'}
+    {category: 'People', img: "url('images/person_1.jpg')"},
+    {category: 'People', img: "url('images/person_2.jpg')"},
+    {category: 'People', img: "url('images/person_3.jpg')"},
+    {category: 'People', img: "url('images/person_4.jpg')"},
+    {category: 'People', img: "url('images/person_5.jpg')"}
 ];
 
 const clothing = [
-    {category: 'Clothing', img: 'clothinPic1'},
-    {category: 'Clothing', img: 'clothinPic2'},
-    {category: 'Clothing', img: 'clothinPic3'},
-    {category: 'Clothing', img: 'clothinPic4'},
-    {category: 'Clothing', img: 'clothinPic5'}
+    {category: 'Clothing', img: "url('images/clothing_1.jpg')"},
+    {category: 'Clothing', img: "url('images/clothing_2.jpg')"},
+    {category: 'Clothing', img: "url('images/clothing_3.jpg')"},
+    {category: 'Clothing', img: "url('images/clothing_4.jpg')"},
+    {category: 'Clothing', img: "url('images/clothing_5.jpg')"}
 ];
 
 const food = [
-    {category: 'Food', img: 'foodPic1'},
-    {category: 'Food', img: 'foodPic2'},
-    {category: 'Food', img: 'foodPic3'},
-    {category: 'Food', img: 'foodPic4'},
-    {category: 'Food', img: 'foodPic5'}
+    {category: 'Food', img: "url('images/food_1.jpg')"},
+    {category: 'Food', img: "url('images/food_2.jpg')"},
+    {category: 'Food', img: "url('images/food_3.jpg')"},
+    {category: 'Food', img: "url('images/food_4.jpg')"},
+    {category: 'Food', img: "url('images/food_5.jpg')"}
 ];
 
 const shapes = [
-    {category: 'Shapes', img: 'shapePic1'},
-    {category: 'Shapes', img: 'shapePic2'},
-    {category: 'Shapes', img: 'shapePic3'},
-    {category: 'Shapes', img: 'shapePic4'},
-    {category: 'Shapes', img: 'shapePic5'}
+    {category: 'House', img: "url('images/house_1.jpg')"},
+    {category: 'House', img: "url('images/house_2.jpg')"},
+    {category: 'House', img: "url('images/house_3.jpg')"},
+    {category: 'House', img: "url('images/house_4.jpg')"},
+    {category: 'House', img: "url('images/house_5.jpg')"}
 ]
 
 
@@ -153,7 +153,7 @@ const selectRemainingImages = () => {
 
 const remainingImages = selectRemainingImages();
 
-// console.log(remainingImages)
+
 
 const defineRemainingPositions = () => {
 
@@ -182,4 +182,4 @@ const assignRemainingImages = () => {
 
 assignRemainingImages();
 
-console.log(targetCategory[0].category)
+console.log(targetCategory[0].category);
