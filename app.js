@@ -51,7 +51,9 @@ const gridClasses = ['.one', '.two', '.three', '.four', '.five', '.six', '.seven
 
 let allCategories = [animals, transport, people, clothing, food, shapes];
 
-const goBtn = document.querySelector('button');
+const refreshBtn = document.querySelector('button');
+const squares = document.querySelectorAll('.square');
+const submitAnswerBtn = document.querySelector('.submit_answer_btn');
 
 
 const selectTargetCategory = () => {
@@ -181,8 +183,13 @@ const assignRemainingImages = () => {
 
 }
 
+const theCorrectAnswers = [];
 
 const refreshPage = () => {
+
+    squares.forEach(square => {
+        square.classList.remove('clicked');
+    })
 
     targetCategory = selectTargetCategory();
     remainingCategories = selectRemainingCategories();
@@ -191,10 +198,55 @@ const refreshPage = () => {
     remainingImages = selectRemainingImages();
     remainingPositions = defineRemainingPositions();
     assignRemainingImages();
+
+    theCorrectAnswers.push(targetPositions);
+    
 }
 
 
-goBtn.addEventListener('click', refreshPage);
+
+
+
+
+
+
+refreshBtn.addEventListener('click', refreshPage);
+
+//Darken and add class of clicked toclicked square
+squares.forEach(square => {
+    square.addEventListener('click', function(e) {
+        e.target.classList.toggle('clicked')
+    });
+});
+
+
+const submitAnswer = () => {
+
+    const answers = []
+
+    squares.forEach(square => {
+
+        let selectedSquares = square.className.split(/\s+/).length;
+        let theCorrectLengthForASelectedSquare = 3;
+        let selectedSquareClass = square.className.split(/\s+/)[1]
+
+        if (selectedSquares === theCorrectLengthForASelectedSquare) {
+            answers.push('.' + selectedSquareClass);
+        }
+    });
+    const currentCorrectAnswer = theCorrectAnswers[theCorrectAnswers.length - 1];
+
+    console.log(currentCorrectAnswer.sort())
+    console.log(answers.sort())
+
+    if (currentCorrectAnswer.sort().join() === answers.sort().join()) {
+        console.log("YAY!")
+    }
+
+};
+
+submitAnswerBtn.addEventListener('click', submitAnswer);
+
 
 // assignRemainingImages();
 
