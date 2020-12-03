@@ -47,6 +47,10 @@ const shapes = [
 ]
 
 
+let attempts = 0;
+let wins = 0;
+let score = 0;
+
 const squareClasses = ['.one', '.two', '.three', '.four', '.five', '.six', '.seven','.eight']
 
 let allCategories = [animals, transport, people, clothing, food, shapes];
@@ -55,6 +59,9 @@ const squares = document.querySelectorAll('.square');
 const refreshBtn = document.querySelector('.refresh');
 const submitAnswerBtn = document.querySelector('.submit_answer_btn');
 const board = document.querySelector('.board');
+const winnerText = document.querySelector('.winner_text');
+const loserText = document.querySelector('.loser_text');
+let scoreDisplayed = document.querySelector('.score');
 
 
 const selectTargetCategory = () => {
@@ -192,7 +199,10 @@ const refreshPage = () => {
         square.classList.remove('clicked');
     })
 
+    scoreDisplayed.textContent = "";
 
+    winnerText.classList.add('hidden');
+    loserText.classList.add('hidden');
     refreshBtn.classList.add('hidden');
     submitAnswerBtn.classList.remove('hidden');
     targetCategory = selectTargetCategory();
@@ -216,18 +226,22 @@ const refreshPage = () => {
 
 refreshBtn.addEventListener('click', refreshPage);
 
+
 //Darken and add class of clicked to clicked square
 squares.forEach(square => {
     square.addEventListener('click', function(e) {
-        e.target.classList.toggle('clicked')
+        e.target.classList.toggle('clicked');
     });
 });
 
 const announceWinner = () => {
-    console.log("YAY BRO!");
 
+    wins += 0.1;
+    console.log(wins)
     refreshBtn.classList.remove('hidden');
     submitAnswerBtn.classList.add('hidden');
+    winnerText.classList.remove('hidden');
+
 
     squares.forEach(square => {
         if (square.classList.contains('clicked')) {
@@ -236,10 +250,37 @@ const announceWinner = () => {
             square.classList.add('clicked');
         }
     });
+
+    
+    
+    score = (Math.floor((wins / attempts) * 100));
+    console.log(score);
+    
+    return scoreDisplayed.textContent = score + "%";
 };
+
+const announceLoser = () => {    
+    refreshBtn.classList.remove('hidden');
+    submitAnswerBtn.classList.add('hidden');
+    loserText.classList.remove('hidden');
+
+    squares.forEach(square => {
+        if (!square.classList.contains('clicked')) {
+            square.classList.add('clicked');
+        }
+    });
+
+    score = (Math.floor((wins / attempts) * 100));
+    console.log(score);
+    
+    return scoreDisplayed.textContent = score + "%";
+}
 
 
 const submitAnswer = () => {
+
+    attempts += 0.1;
+    console.log(attempts)
 
     const answer = []
 
@@ -263,7 +304,9 @@ const submitAnswer = () => {
     const answerAsString = answer.sort().join();
 
     if (currentCorrectAnswerAsString === answerAsString) {
-        announceWinner()
+        announceWinner();
+    } else {
+        announceLoser();
     }
 
 };
@@ -271,9 +314,11 @@ const submitAnswer = () => {
 submitAnswerBtn.addEventListener('click', submitAnswer);
 
 
+
+
 // assignRemainingImages();
 
-console.log(targetCategory[0].category);
+// console.log(targetCategory[0].category);
 
 // assignTargetImages(); 
 // assignRemainingImages();
