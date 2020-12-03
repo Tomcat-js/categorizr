@@ -47,13 +47,14 @@ const shapes = [
 ]
 
 
-const gridClasses = ['.one', '.two', '.three', '.four', '.five', '.six', '.seven','.eight']
+const squareClasses = ['.one', '.two', '.three', '.four', '.five', '.six', '.seven','.eight']
 
 let allCategories = [animals, transport, people, clothing, food, shapes];
 
 const refreshBtn = document.querySelector('button');
 const squares = document.querySelectorAll('.square');
 const submitAnswerBtn = document.querySelector('.submit_answer_btn');
+const board = document.querySelector('.board');
 
 
 const selectTargetCategory = () => {
@@ -91,11 +92,11 @@ const defineTargetPositions = () => {
 
     for (let i = 0; i < 3; i++) {
 
-        const randomGridClassIndex = Math.floor(Math.random() * gridClasses.length);
+        const randomGridClassIndex = Math.floor(Math.random() * squareClasses.length);
 
-        if (!targetPositions.includes(gridClasses[randomGridClassIndex])) {
+        if (!targetPositions.includes(squareClasses[randomGridClassIndex])) {
 
-            targetPositions.push(gridClasses[randomGridClassIndex]);
+            targetPositions.push(squareClasses[randomGridClassIndex]);
 
         } else {
 
@@ -162,7 +163,7 @@ const defineRemainingPositions = () => {
 
     const remainingPositions = [];
 
-    gridClasses.forEach(gridClass => {
+    squareClasses.forEach(gridClass => {
         if (!targetPositions.includes(gridClass)) {
             remainingPositions.push(gridClass);
         }
@@ -183,7 +184,7 @@ const assignRemainingImages = () => {
 
 }
 
-const theCorrectAnswers = [];
+const theCorrectanswer = [];
 
 const refreshPage = () => {
 
@@ -199,7 +200,7 @@ const refreshPage = () => {
     remainingPositions = defineRemainingPositions();
     assignRemainingImages();
 
-    theCorrectAnswers.push(targetPositions);
+    theCorrectanswer.push(targetPositions);
     
 }
 
@@ -212,35 +213,50 @@ const refreshPage = () => {
 
 refreshBtn.addEventListener('click', refreshPage);
 
-//Darken and add class of clicked toclicked square
+//Darken and add class of clicked to clicked square
 squares.forEach(square => {
     square.addEventListener('click', function(e) {
         e.target.classList.toggle('clicked')
     });
 });
 
+const announceWinner = () => {
+    console.log("YAY BRO!");
+    squares.forEach(square => {
+        if (square.classList.contains('clicked')) {
+            square.classList.remove('clicked');
+        } else {
+            square.classList.add('clicked');
+        }
+    });
+};
+
 
 const submitAnswer = () => {
 
-    const answers = []
+    const answer = []
 
     squares.forEach(square => {
 
         let selectedSquares = square.className.split(/\s+/).length;
         let theCorrectLengthForASelectedSquare = 3;
-        let selectedSquareClass = square.className.split(/\s+/)[1]
+        let selectedSquareClass = square.className.split(/\s+/)[1];
 
         if (selectedSquares === theCorrectLengthForASelectedSquare) {
-            answers.push('.' + selectedSquareClass);
+            //push a dot to match square class name
+            answer.push('.' + selectedSquareClass);
         }
     });
-    const currentCorrectAnswer = theCorrectAnswers[theCorrectAnswers.length - 1];
+    const currentCorrectAnswer = theCorrectanswer[theCorrectanswer.length - 1];
 
-    console.log(currentCorrectAnswer.sort())
-    console.log(answers.sort())
+    // console.log(currentCorrectAnswer.sort())
+    // console.log(answer.sort())
 
-    if (currentCorrectAnswer.sort().join() === answers.sort().join()) {
-        console.log("YAY!")
+    const currentCorrectAnswerAsString = currentCorrectAnswer.sort().join();
+    const answerAsString = answer.sort().join();
+
+    if (currentCorrectAnswerAsString === answerAsString) {
+        announceWinner()
     }
 
 };

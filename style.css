@@ -17,7 +17,7 @@
 }
 
 .clicked {
-  filter: brightness(30%);
+  filter: brightness(20%);
 }
 
 .submit_answer_btn {
