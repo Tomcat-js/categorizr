@@ -51,8 +51,8 @@ const squareClasses = ['.one', '.two', '.three', '.four', '.five', '.six', '.sev
 
 let allCategories = [animals, transport, people, clothing, food, shapes];
 
-const refreshBtn = document.querySelector('button');
 const squares = document.querySelectorAll('.square');
+const refreshBtn = document.querySelector('.refresh');
 const submitAnswerBtn = document.querySelector('.submit_answer_btn');
 const board = document.querySelector('.board');
 
@@ -192,6 +192,9 @@ const refreshPage = () => {
         square.classList.remove('clicked');
     })
 
+
+    refreshBtn.classList.add('hidden');
+    submitAnswerBtn.classList.remove('hidden');
     targetCategory = selectTargetCategory();
     remainingCategories = selectRemainingCategories();
     targetPositions = defineTargetPositions();
@@ -222,6 +225,10 @@ squares.forEach(square => {
 
 const announceWinner = () => {
     console.log("YAY BRO!");
+
+    refreshBtn.classList.remove('hidden');
+    submitAnswerBtn.classList.add('hidden');
+
     squares.forEach(square => {
         if (square.classList.contains('clicked')) {
             square.classList.remove('clicked');
@@ -267,3 +274,6 @@ submitAnswerBtn.addEventListener('click', submitAnswer);
 // assignRemainingImages();
 
 console.log(targetCategory[0].category);
+
+// assignTargetImages(); 
+// assignRemainingImages();

@@ -20,7 +20,19 @@
   filter: brightness(20%);
 }
 
-.submit_answer_btn {
+.hidden {
+  display: none;
+}
+
+.center {
+  margin: auto;
+  width: 80%;
+  /* border: 3px solid #73AD21; */
+  padding: 10px;
+}
+
+
+/* .submit_answer_btn {
   display: block;
   width: 115px;
   height: 25px;
@@ -31,4 +43,4 @@
   color: white;
   font-weight: bold;
   line-height: 25px;
-}
+} */
