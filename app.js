@@ -200,7 +200,7 @@ const refreshPage = () => {
     })
 
     scoreDisplayed.textContent = ""
-
+    clickable = true
     winnerText.classList.add('hidden')
     loserText.classList.add('hidden')
     refreshBtn.classList.add('hidden')
@@ -228,11 +228,14 @@ const refreshPage = () => {
 
 refreshBtn.addEventListener('click', refreshPage)
 
+let clickable = true
 
-//Darken and add class of clicked to clicked square
+//Darken and add class of clicked to clicked square if clickabe
 squares.forEach(square => {
     square.addEventListener('click', function(e) {
-        e.target.classList.toggle('clicked')
+        if (clickable) {
+            e.target.classList.toggle('clicked')
+        }
     })
 })
 
@@ -243,6 +246,7 @@ const announceWinner = () => {
     refreshBtn.classList.remove('hidden')
     submitAnswerBtn.classList.add('hidden')
     winnerText.classList.remove('hidden')
+    clickable = false
 
 
     squares.forEach(square => {
@@ -265,6 +269,7 @@ const announceLoser = () => {
     refreshBtn.classList.remove('hidden')
     submitAnswerBtn.classList.add('hidden')
     loserText.classList.remove('hidden')
+    clickable = false
 
     squares.forEach(square => {
         if (!square.classList.contains('clicked')) {
