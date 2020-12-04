@@ -315,7 +315,7 @@ const submitAnswer = () => {
 
 submitAnswerBtn.addEventListener('click', submitAnswer)
 
-
+// refreshPage()
 
 
 // assignRemainingImages();
