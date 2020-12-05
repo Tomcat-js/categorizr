@@ -17,18 +17,24 @@ body {
   font-family: "Lacquer", cursive;
 }
 
+.welcome_text {
+  /* display: none; */
+  font-size: 1.5rem;
+}
+
 .score_board {
   font-family: "Goldman", cursive;
   text-align: center;
 }
-
+/* 
 .text_box {
   text-align: center;
-}
+} */
 
 .title {
+  text-align: center;
   padding: 30px;
-  font-size: 500%;
+  font-size: 3rem;
 }
 
 .board {
@@ -90,7 +96,7 @@ body {
   line-height: 25px;
 } */
 
-.instructions {
+/* .instructions {
   display: inline-block;
   padding: 10px 20px;
   text-align: center;
@@ -99,7 +105,7 @@ body {
   background-color: #333b3f;
   border-radius: 6px;
   outline: none;
-}
+} */
 
 .instructions:hover {
   text-decoration: none;

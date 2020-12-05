@@ -20,32 +20,71 @@
 </head>
 <body>
     <div class="wrapper">
-        <!-- <header>
-
-        </header> -->
-        <div class="text_box">
-            <h1 class="title">Categorizr</h1>
+        <div class="preload">
+            <img src="images/animal_1.jpg" alt="">
+            <img src="images/animal_2.jpg" alt="">
+            <img src="images/animal_3.jpg" alt="">
+            <img src="images/animal_4.jpg" alt="">
+            <img src="images/animal_5.jpg" alt="">
+            <img src="images/clothing_1.jpg" alt="">
+            <img src="images/clothing_2.jpg" alt="">
+            <img src="images/clothing_3.jpg" alt="">
+            <img src="images/clothing_4.jpg" alt="">
+            <img src="images/clothing_5.jpg" alt="">
+            <img src="images/food_1.jpg" alt="">
+            <img src="images/food_2.jpg" alt="">
+            <img src="images/food_3.jpg" alt="">
+            <img src="images/food_4.jpg" alt="">
+            <img src="images/food_5.jpg" alt="">
+            <img src="images/person_1.jpg" alt="">
+            <img src="images/person_2.jpg" alt="">
+            <img src="images/person_3.jpg" alt="">
+            <img src="images/person_4.jpg" alt="">
+            <img src="images/person_5.jpg" alt="">
+            <img src="images/transport_1.jpg" alt="">
+            <img src="images/transport_2.jpg" alt="">
+            <img src="images/transport_3.jpg" alt="">
+            <img src="images/transport_4.jpg" alt="">
+            <img src="images/transport_5.jpg" alt="">
+            <img src="images/house_1.jpg" alt="">
+            <img src="images/house_2.jpg" alt="">
+            <img src="images/house_3.jpg" alt="">
+            <img src="images/house_4.jpg" alt="">
+            <img src="images/house_5.jpg" alt="">
         </div>
+        <!-- <p class="welcome_text">Catogorizr is a simple game to help children with ASD learn to recognise and generalise concepts by categorising a variety of images.</p> -->
+        <!-- <p class="instructions">To play, just select any 3 images that share the same category and click “Lock It In!”.</p> -->
+
+        <header>
+            <h1 class="title">Categorizr</h1>
+        </header>
+        <h2 class="score_board">Score: <span class="score"></span></h2>
 
         <div class="board">
             <div class="square one"></div>
-            <div class="square two">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur deleniti delectus numquam nam est quos fuga eum sequi amet natus?</div>
+            <div class="square two">
+                <p class="welcome_text">Catogorizr is a simple game to help children with ASD learn to recognise and generalise concepts by categorising a variety of images.</p>
+            </div>
             <div class="square three"></div>
             <div class="square four"></div>
     
     
-            <div class="center text-center">       
-                <div class="text_box">
-                    <!-- <h1 class="title">Categorizr</h1> -->
-                    <a class="instructions" href="./app.html"><h3>Play Game</h3></a>  
-                </div>    
+            <div class="center text-center">
+                <h2 class="winner_text hidden">Winner!</h2>
+                <h2 class="loser_text hidden">Oh No! Better Luck Next Time.</h2>
+                
+                <button type="button" class="btn btn-lg btn-dark refresh">Play</button>    
+                <button type="button" class="btn btn-lg btn-dark submit_answer_btn hidden">Lock It In!</button>    
+    
             </div>
     
     
     
             <div class="square five"></div>
             <div class="square six"></div>
-            <div class="square seven">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit harum ab aspernatur ex repellendus, beatae mollitia possimus ad consectetur laborum, laudantium quam nam blanditiis at necessitatibus nostrum repellat sequi commodi.</div>
+            <div class="square seven">
+                <p class="instructions">To play, just select any 3 images that share the same category and click “Lock It In!”.</p>
+            </div>
             <div class="square eight"></div>
         </div>
            <!-- jQuery and Bootstrap Bundle (includes Popper) -->

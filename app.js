@@ -62,6 +62,17 @@ const board = document.querySelector('.board')
 const winnerText = document.querySelector('.winner_text')
 const loserText = document.querySelector('.loser_text')
 let scoreDisplayed = document.querySelector('.score')
+const welcomeText = document.querySelector('.welcome_text')
+const instructions = document.querySelector('.instructions')
+const squareTwo = document.querySelector('.two')
+const squareSeven = document.querySelector('.seven')
+
+// const centerWelcomeText = () => {
+//     squareTwo.appendChild(welcomeText)
+//     squareSeven.appendChild(instructions)
+// }
+
+// centerWelcomeText()
 
 
 const selectTargetCategory = () => {
@@ -199,6 +210,8 @@ const refreshPage = () => {
         square.classList.remove('clicked')
     })
 
+    welcomeText.className ='hidden'
+    instructions.className = 'hidden'
     scoreDisplayed.textContent = ""
     clickable = true
     winnerText.classList.add('hidden')
