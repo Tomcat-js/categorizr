@@ -3,7 +3,14 @@ const animals = [
     {category: 'Animals', img: "url('images/animal_2.jpg')"},
     {category: 'Animals', img: "url('images/animal_3.jpg')"},
     {category: 'Animals', img: "url('images/animal_4.jpg')"},
-    {category: 'Animals', img: "url('images/animal_5.jpg')"}
+    {category: 'Animals', img: "url('images/animal_5.jpg')"},
+    {category: 'Animals', img: "url('images/animal_6.jpg')"},
+    {category: 'Animals', img: "url('images/animal_7.jpg')"},
+    {category: 'Animals', img: "url('images/animal_8.jpg')"},
+    {category: 'Animals', img: "url('images/animal_9.jpg')"},
+    {category: 'Animals', img: "url('images/animal_10.jpg')"},
+    {category: 'Animals', img: "url('images/animal_11.jpg')"},
+    {category: 'Animals', img: "url('images/animal_12.jpg')"}
 ]
 
 const transport = [
@@ -11,7 +18,14 @@ const transport = [
     {category: 'Transport', img: "url('images/transport_2.jpg')"},
     {category: 'Transport', img: "url('images/transport_3.jpg')"},
     {category: 'Transport', img: "url('images/transport_4.jpg')"},
-    {category: 'Transport', img: "url('images/transport_5.jpg')"}
+    {category: 'Transport', img: "url('images/transport_5.jpg')"},
+    {category: 'Transport', img: "url('images/transport_6.jpg')"},
+    {category: 'Transport', img: "url('images/transport_7.jpg')"},
+    {category: 'Transport', img: "url('images/transport_8.jpg')"},
+    {category: 'Transport', img: "url('images/transport_9.jpg')"},
+    {category: 'Transport', img: "url('images/transport_10.jpg')"},
+    {category: 'Transport', img: "url('images/transport_11.jpg')"},
+    {category: 'Transport', img: "url('images/transport_12.jpg')"}
 ]
 
 const people = [
@@ -19,7 +33,14 @@ const people = [
     {category: 'People', img: "url('images/person_2.jpg')"},
     {category: 'People', img: "url('images/person_3.jpg')"},
     {category: 'People', img: "url('images/person_4.jpg')"},
-    {category: 'People', img: "url('images/person_5.jpg')"}
+    {category: 'People', img: "url('images/person_5.jpg')"},
+    {category: 'People', img: "url('images/person_6.jpg')"},
+    {category: 'People', img: "url('images/person_7.jpg')"},
+    {category: 'People', img: "url('images/person_8.jpg')"},
+    {category: 'People', img: "url('images/person_9.jpg')"},
+    {category: 'People', img: "url('images/person_10.jpg')"},
+    {category: 'People', img: "url('images/person_11.jpg')"},
+    {category: 'People', img: "url('images/person_12.jpg')"}
 ]
 
 const clothing = [
@@ -27,7 +48,14 @@ const clothing = [
     {category: 'Clothing', img: "url('images/clothing_2.jpg')"},
     {category: 'Clothing', img: "url('images/clothing_3.jpg')"},
     {category: 'Clothing', img: "url('images/clothing_4.jpg')"},
-    {category: 'Clothing', img: "url('images/clothing_5.jpg')"}
+    {category: 'Clothing', img: "url('images/clothing_5.jpg')"},
+    {category: 'Clothing', img: "url('images/clothing_6.jpg')"},
+    {category: 'Clothing', img: "url('images/clothing_7.jpg')"},
+    {category: 'Clothing', img: "url('images/clothing_8.jpg')"},
+    {category: 'Clothing', img: "url('images/clothing_9.jpg')"},
+    {category: 'Clothing', img: "url('images/clothing_10.jpg')"},
+    {category: 'Clothing', img: "url('images/clothing_11.jpg')"},
+    {category: 'Clothing', img: "url('images/clothing_12.jpg')"}
 ]
 
 const food = [
@@ -35,7 +63,14 @@ const food = [
     {category: 'Food', img: "url('images/food_2.jpg')"},
     {category: 'Food', img: "url('images/food_3.jpg')"},
     {category: 'Food', img: "url('images/food_4.jpg')"},
-    {category: 'Food', img: "url('images/food_5.jpg')"}
+    {category: 'Food', img: "url('images/food_5.jpg')"},
+    {category: 'Food', img: "url('images/food_6.jpg')"},
+    {category: 'Food', img: "url('images/food_7.jpg')"},
+    {category: 'Food', img: "url('images/food_8.jpg')"},
+    {category: 'Food', img: "url('images/food_9.jpg')"},
+    {category: 'Food', img: "url('images/food_10.jpg')"},
+    {category: 'Food', img: "url('images/food_11.jpg')"},
+    {category: 'Food', img: "url('images/food_12.jpg')"}
 ]
 
 const shapes = [
@@ -43,7 +78,14 @@ const shapes = [
     {category: 'House', img: "url('images/house_2.jpg')"},
     {category: 'House', img: "url('images/house_3.jpg')"},
     {category: 'House', img: "url('images/house_4.jpg')"},
-    {category: 'House', img: "url('images/house_5.jpg')"}
+    {category: 'House', img: "url('images/house_5.jpg')"},
+    {category: 'House', img: "url('images/house_6.jpg')"},
+    {category: 'House', img: "url('images/house_7.jpg')"},
+    {category: 'House', img: "url('images/house_8.jpg')"},
+    {category: 'House', img: "url('images/house_9.jpg')"},
+    {category: 'House', img: "url('images/house_10.jpg')"},
+    {category: 'House', img: "url('images/house_11.jpg')"},
+    {category: 'House', img: "url('images/house_12.jpg')"}
 ]
 
 
@@ -84,7 +126,9 @@ const selectTargetCategory = () => {
    return targetCategory
 };
 
+
 let targetCategory = selectTargetCategory()
+
 
 const selectRemainingCategories = () => {
 
@@ -202,6 +246,12 @@ const assignRemainingImages = () => {
 
 }
 
+
+function playSound(){
+    var audio = new Audio("sounds/playArp.mp3");
+    audio.play()
+}
+
 const theCorrectanswer = []
 
 const refreshPage = () => {
@@ -210,6 +260,7 @@ const refreshPage = () => {
         square.classList.remove('clicked')
     })
 
+    playSound()
     welcomeText.className ='hidden'
     instructions.className = 'hidden'
     scoreDisplayed.textContent = ""
@@ -243,17 +294,34 @@ refreshBtn.addEventListener('click', refreshPage)
 
 let clickable = true
 
+function clickSound(){
+    const click = new Audio("sounds/click.mp3");
+    click.play()
+}
+
 //Darken and add class of clicked to clicked square if clickabe
 squares.forEach(square => {
     square.addEventListener('click', function(e) {
         if (clickable) {
+            clickSound()
             e.target.classList.toggle('clicked')
         }
     })
 })
 
+function winnerSound(){
+    const winner = new Audio("sounds/winner.mp3");
+    winner.play();
+}
+
+function loserSound(){
+    const loser = new Audio("sounds/loser.mp3");
+    loser.play();
+}
+
 const announceWinner = () => {
 
+    winnerSound()
     wins += 0.1
     console.log(wins)
     refreshBtn.classList.remove('hidden')
@@ -279,6 +347,7 @@ const announceWinner = () => {
 };
 
 const announceLoser = () => {    
+    loserSound()
     refreshBtn.classList.remove('hidden')
     submitAnswerBtn.classList.add('hidden')
     loserText.classList.remove('hidden')
@@ -299,6 +368,8 @@ const announceLoser = () => {
 
 const submitAnswer = () => {
 
+
+    // lockInSound()
     attempts += 0.1
     console.log(attempts)
 
@@ -329,7 +400,13 @@ const submitAnswer = () => {
         announceLoser()
     }
 
-};
+}
+
+// function lockInSound(){
+//     var audio = new Audio("sounds/lock_it_in2.mp3");
+//     audio.play();
+// }
+
 
 submitAnswerBtn.addEventListener('click', submitAnswer)
 
