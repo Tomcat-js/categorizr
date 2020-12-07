@@ -94,6 +94,17 @@ let wins = 0
 let score = 0
 let rounds = 0
 
+const allObjs = [...animals, ...transport, ...food, ...clothing, ...people,...houses]
+
+const allImgUrls = allObjs.map(function(item) { return item["img"].replace('url(','').replace(')', '').replace(/['"]+/g, '') })
+
+//preload images
+for (let i = 0; i < allImgUrls.length; ++i) {
+    let img = new Image();
+    img.src = allImgUrls[i]
+ }
+
+
 const squareClasses = ['.one', '.two', '.three', '.four', '.five', '.six', '.seven','.eight']
 
 let allCategories = [animals, transport, people, clothing, food, houses]
@@ -129,14 +140,7 @@ let targetCategory = selectTargetCategory()
 
 const selectRemainingCategories = () => {
 
-    const remainingCategories = []
-
-    allCategories.forEach(cat => {
-        if (cat !== targetCategory) {
-            remainingCategories.push(cat)
-        }
-    })
-
+    const remainingCategories = allCategories.filter(category => category !== targetCategory)
     return remainingCategories
 
 };
