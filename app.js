@@ -73,7 +73,7 @@ const food = [
     {category: 'Food', img: "url('images/food_12.jpg')"}
 ]
 
-const shapes = [
+const houses = [
     {category: 'House', img: "url('images/house_1.jpg')"},
     {category: 'House', img: "url('images/house_2.jpg')"},
     {category: 'House', img: "url('images/house_3.jpg')"},
@@ -96,7 +96,7 @@ let rounds = 0
 
 const squareClasses = ['.one', '.two', '.three', '.four', '.five', '.six', '.seven','.eight']
 
-let allCategories = [animals, transport, people, clothing, food, shapes]
+let allCategories = [animals, transport, people, clothing, food, houses]
 
 const squares = document.querySelectorAll('.square')
 const refreshBtn = document.querySelector('.refresh')
@@ -112,12 +112,6 @@ const squareSeven = document.querySelector('.seven')
 const round = document.querySelector('.rounds')
 const scoreBoard = document.querySelector('.score_board')
 
-// const centerWelcomeText = () => {
-//     squareTwo.appendChild(welcomeText)
-//     squareSeven.appendChild(instructions)
-// }
-
-// centerWelcomeText()
 
 
 const selectTargetCategory = () => {
@@ -136,8 +130,6 @@ let targetCategory = selectTargetCategory()
 const selectRemainingCategories = () => {
 
     const remainingCategories = []
-
-    // console.log(targetCategory)
 
     allCategories.forEach(cat => {
         if (cat !== targetCategory) {
@@ -201,7 +193,6 @@ const assignTargetImages = () => {
 
 }
 
-// assignTargetImages();
 
 const selectRemainingImages = () => {
 
@@ -240,7 +231,6 @@ const defineRemainingPositions = () => {
 let remainingPositions = defineRemainingPositions()
 
 
-
 const assignRemainingImages = () => {
 
     remainingPositions.forEach((position, i) => {
@@ -250,10 +240,7 @@ const assignRemainingImages = () => {
 }
 
 
-function playSound(){
-    var audio = new Audio("sounds/playArp.mp3");
-    audio.play()
-}
+
 
 const theCorrectanswer = []
 
@@ -290,12 +277,6 @@ const refreshPage = () => {
 }
 
 
-
-
-
-
-
-
 refreshBtn.addEventListener('click', refreshPage)
 
 let clickable = true
@@ -315,26 +296,17 @@ squares.forEach(square => {
     })
 })
 
-function winnerSound(){
-    const winner = new Audio("sounds/winner.mp3");
-    winner.play();
-}
 
-function loserSound(){
-    const loser = new Audio("sounds/loser.mp3");
-    loser.play();
-}
 
 const announceWinner = () => {
 
     winnerSound()
     wins += 0.1
-    console.log(wins)
+
     refreshBtn.classList.remove('hidden')
     submitAnswerBtn.classList.add('hidden')
     winnerText.classList.remove('hidden')
     clickable = false
-
 
     squares.forEach(square => {
         if (square.classList.contains('clicked')) {
@@ -343,11 +315,8 @@ const announceWinner = () => {
             square.classList.add('clicked')
         }
     })
-
-    
     
     score = (Math.floor((wins / attempts) * 100))
-    console.log(score)
     
     return scoreDisplayed.textContent = score + "%"
 };
@@ -366,7 +335,6 @@ const announceLoser = () => {
     });
 
     score = (Math.floor((wins / attempts) * 100))
-    console.log(score)
     
     return scoreDisplayed.textContent = score + "%"
 }
@@ -374,10 +342,7 @@ const announceLoser = () => {
 
 const submitAnswer = () => {
 
-
-    // lockInSound()
     attempts += 0.1
-    console.log(attempts)
 
     const answer = []
 
@@ -394,8 +359,6 @@ const submitAnswer = () => {
     })
     const currentCorrectAnswer = theCorrectanswer[theCorrectanswer.length - 1]
 
-    // console.log(currentCorrectAnswer.sort())
-    // console.log(answer.sort())
 
     const currentCorrectAnswerAsString = currentCorrectAnswer.sort().join();
     const answerAsString = answer.sort().join()
@@ -408,20 +371,20 @@ const submitAnswer = () => {
 
 }
 
-// function lockInSound(){
-//     var audio = new Audio("sounds/lock_it_in2.mp3");
-//     audio.play();
-// }
-
 
 submitAnswerBtn.addEventListener('click', submitAnswer)
 
-// refreshPage()
+function playSound(){
+    var audio = new Audio("sounds/playArp.mp3");
+    audio.play()
+}
 
+function winnerSound(){
+    const winner = new Audio("sounds/winner.mp3");
+    winner.play();
+}
 
-// assignRemainingImages();
-
-// console.log(targetCategory[0].category);
-
-// assignTargetImages(); 
-// assignRemainingImages();
+function loserSound(){
+    const loser = new Audio("sounds/loser.mp3");
+    loser.play();
+}
