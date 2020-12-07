@@ -285,10 +285,6 @@ refreshBtn.addEventListener('click', refreshPage)
 
 let clickable = true
 
-function clickSound(){
-    const click = new Audio("sounds/click.mp3");
-    click.play()
-}
 
 //Darken and add class of clicked to clicked square if clickabe
 squares.forEach(square => {
@@ -378,17 +374,38 @@ const submitAnswer = () => {
 
 submitAnswerBtn.addEventListener('click', submitAnswer)
 
-function playSound(){
-    var audio = new Audio("sounds/playArp.mp3");
-    audio.play()
-}
+// function clickSound(){
+//     const click = new Audio("sounds/click.mp3");
+//     click.play()
+// }
 
-function winnerSound(){
-    const winner = new Audio("sounds/winner.mp3");
-    winner.play();
-}
+// function playSound(){
+//     var audio = new Audio("sounds/playArp.mp3");
+//     audio.play()
+// }
 
-function loserSound(){
-    const loser = new Audio("sounds/loser.mp3");
-    loser.play();
-}
+// function winnerSound(){
+//     const winner = new Audio("sounds/winner.mp3");
+//     winner.play();
+// }
+
+// function loserSound(){
+//     const loser = new Audio("sounds/loser.mp3");
+//     loser.play();
+// }
+
+function clickSound() {
+    document.getElementById("click").play();
+ }
+
+function playSound() {
+    document.getElementById("play_arp").play();
+ }
+
+function winnerSound() {
+    document.getElementById("winner").play();
+ }
+
+function loserSound() {
+    document.getElementById("loser").play();
+ }
