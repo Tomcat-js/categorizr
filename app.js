@@ -122,7 +122,10 @@ const squareTwo = document.querySelector('.two')
 const squareSeven = document.querySelector('.seven')
 const round = document.querySelector('.rounds')
 const scoreBoard = document.querySelector('.score_board')
-
+const clickAudio =  document.getElementById("click")
+const playAudio = document.getElementById("play_arp")
+const winnerAudio = document.getElementById("winner")
+const loserAudio = document.getElementById("loser")
 
 
 const selectTargetCategory = () => {
@@ -374,38 +377,24 @@ const submitAnswer = () => {
 
 submitAnswerBtn.addEventListener('click', submitAnswer)
 
-// function clickSound(){
-//     const click = new Audio("sounds/click.mp3");
-//     click.play()
-// }
-
-// function playSound(){
-//     var audio = new Audio("sounds/playArp.mp3");
-//     audio.play()
-// }
-
-// function winnerSound(){
-//     const winner = new Audio("sounds/winner.mp3");
-//     winner.play();
-// }
-
-// function loserSound(){
-//     const loser = new Audio("sounds/loser.mp3");
-//     loser.play();
-// }
 
 function clickSound() {
-    document.getElementById("click").play();
- }
+    clickAudio.load()
+    clickAudio.play()
+}
 
 function playSound() {
-    document.getElementById("play_arp").play();
- }
+    playAudio.load()
+    playAudio.play()
+}
 
 function winnerSound() {
-    document.getElementById("winner").play();
- }
+    winnerAudio.load()
+    winnerAudio.play()
+}
 
 function loserSound() {
-    document.getElementById("loser").play();
- }
+    loserAudio.load()
+    loserAudio.play()
+}
+
