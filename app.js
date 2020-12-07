@@ -92,6 +92,7 @@ const shapes = [
 let attempts = 0
 let wins = 0
 let score = 0
+let rounds = 0
 
 const squareClasses = ['.one', '.two', '.three', '.four', '.five', '.six', '.seven','.eight']
 
@@ -108,6 +109,8 @@ const welcomeText = document.querySelector('.welcome_text')
 const instructions = document.querySelector('.instructions')
 const squareTwo = document.querySelector('.two')
 const squareSeven = document.querySelector('.seven')
+const round = document.querySelector('.rounds')
+const scoreBoard = document.querySelector('.score_board')
 
 // const centerWelcomeText = () => {
 //     squareTwo.appendChild(welcomeText)
@@ -260,7 +263,9 @@ const refreshPage = () => {
         square.classList.remove('clicked')
     })
 
+    rounds += 1
     playSound()
+    scoreBoard.classList.remove('hidden')
     welcomeText.className ='hidden'
     instructions.className = 'hidden'
     scoreDisplayed.textContent = ""
@@ -279,7 +284,8 @@ const refreshPage = () => {
 
     theCorrectanswer.push(targetPositions)
 
-    return scoreDisplayed.textContent = score + "%"
+    round.textContent = rounds
+    scoreDisplayed.textContent = score + "%"
     
 }
 
