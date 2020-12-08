@@ -13,4 +13,4 @@
 - Javascript
 - Responsive design
 
-![Pic](~https://imgur.com/hHqn63r~)
+![Pic](https://imgur.com/hHqn63r)
