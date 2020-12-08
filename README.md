@@ -1,6 +1,6 @@
 # Categorizr
 
-## A Category Recognition Game For ABA Therapy. [See Here](<[Categorizor](https://tomcat-js.github.io/categorizr/)>)
+## A Category Recognition Game For ABA Therapy. [See Here](https://tomcat-js.github.io/categorizr/)
 
 ### Description
 
